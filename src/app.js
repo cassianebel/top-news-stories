@@ -1,6 +1,5 @@
 const apiKey = process.env.API_KEY;
 const url = `https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${apiKey}`;
-let windowWidth = window.innerWidth;
 
 async function fetchTopStories() {
   try {
@@ -24,13 +23,8 @@ function displayStories(stories) {
     storyLink.className = "story";
 
     const storyImg = document.createElement("img");
-    // if (windowWidth >= 768 && index === 0) {
-    //   storyImg.src = story.multimedia[0].url;
-    //   storyImg.alt = story.multimedia[0].caption;
-    // } else {
     storyImg.src = story.multimedia[1].url;
     storyImg.alt = story.multimedia[1].caption;
-    // }
     storyLink.appendChild(storyImg);
 
     const storyTitle = document.createElement("h2");
@@ -48,10 +42,6 @@ function displayStories(stories) {
     storiesContainer.appendChild(storyLink);
   });
 }
-
-window.addEventListener("resize", () => {
-  windowWidth = window.innerWidth;
-});
 
 // Fetch top stories on page load
 fetchTopStories();
