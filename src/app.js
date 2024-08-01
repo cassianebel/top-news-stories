@@ -1,4 +1,4 @@
-const apiKey = "0bEwlYlGNxrZUyiX0F0GA0YQsoOeY0l2";
+const apiKey = process.env.API_KEY;
 const url = `https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${apiKey}`;
 let windowWidth = window.innerWidth;
 
