@@ -61,8 +61,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggleCheckbox = document.getElementById("dark-mode-toggle");
   const htmlElement = document.documentElement;
 
+  // Check if the user's system is set to dark mode
+  const prefersDarkScheme = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+
+  // Retrieve the user's theme preference from local storage
+  const storedTheme = localStorage.getItem("theme");
+
+  if (storedTheme) {
+    htmlElement.setAttribute("data-theme", storedTheme);
+    toggleCheckbox.checked = storedTheme === "dark";
+  } else if (prefersDarkScheme) {
+    toggleCheckbox.checked = true;
+    htmlElement.setAttribute("data-theme", "dark");
+  } else {
+    toggleCheckbox.checked = false;
+    htmlElement.setAttribute("data-theme", "light");
+  }
+
   toggleCheckbox.addEventListener("change", () => {
     const newTheme = toggleCheckbox.checked ? "dark" : "light";
     htmlElement.setAttribute("data-theme", newTheme);
+    // Save the user's theme preference to local storage
+    localStorage.setItem("theme", newTheme);
   });
 });
