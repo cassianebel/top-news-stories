@@ -18,8 +18,10 @@ function displayStories(stories) {
   storiesContainer.innerHTML = '';
 
   stories.forEach((story, index) => {
-    const storyDiv = document.createElement('div');
-    storyDiv.className = 'story';
+    const storyLink = document.createElement('a');
+    storyLink.href = story.url;
+    storyLink.target = '_blank';
+    storyLink.className = 'story';
 
     const storyImg = document.createElement('img');
     // if (windowWidth >= 768 && index === 0) {
@@ -29,14 +31,10 @@ function displayStories(stories) {
       storyImg.src = story.multimedia[1].url;
       storyImg.alt = story.multimedia[1].caption;
     // }
-    storyDiv.appendChild(storyImg);
+    storyLink.appendChild(storyImg);
     
     const storyTitle = document.createElement('h2');
-    const storyLink = document.createElement('a');
-    storyLink.href = story.url;
-    storyLink.target = '_blank';
-    storyLink.textContent = story.title;
-    storyTitle.appendChild(storyLink);
+    storyTitle.textContent = story.title;
     
     const storyAbstract = document.createElement('p');
     storyAbstract.textContent = story.abstract;
@@ -46,8 +44,8 @@ function displayStories(stories) {
     
     storyText.appendChild(storyTitle);
     storyText.appendChild(storyAbstract);
-    storyDiv.appendChild(storyText);
-    storiesContainer.appendChild(storyDiv);
+    storyLink.appendChild(storyText);
+    storiesContainer.appendChild(storyLink);
   });
 }
 
