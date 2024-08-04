@@ -9,7 +9,7 @@ View the published page here: https://cassianebel.github.io/top-news-stories/
 - Detects the user's preference for dark/light mode and updates the page accordingly, also allows the user to toggle between dark and light mode.
 
 ## Installation
-1. Obtain an API key from the New York Times Developer site: https://developer.nytimes.com/) site
+1. Obtain an API key from the New York Times Developer site: https://developer.nytimes.com/
 2. Clone the repository
    `git clone https://github.com/cassianebel/top-news-stories.git`
 4. Change into the directory
