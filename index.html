@@ -18,18 +18,25 @@
     <script src="dist/bundle.js"></script>
   </head>
   <body>
+    <a href="#main" id="skip-link">Skip to main content</a>
     <header>
       <h1>Today's Top Stories</h1>
 
       <label class="switch">
-        <input type="checkbox" id="dark-mode-toggle" />
+        <input
+          type="checkbox"
+          id="dark-mode-toggle"
+          aria-label="dark mode toggle"
+        />
         <span class="slider round">
           <i class="fa-solid fa-sun"></i>
           <i class="fa-solid fa-moon"></i>
         </span>
       </label>
     </header>
-    <div id="stories"></div>
+    <main id="main">
+      <div id="stories"></div>
+    </main>
     <footer>
       <img
         src="https://developer.nytimes.com/files/poweredby_nytimes_200c.png"

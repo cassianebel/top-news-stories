@@ -15,6 +15,18 @@ body {
   background-color: #202020;
   color: #f2f2f2;
 }
+#skip-link {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  background-color: #000;
+  color: #fff;
+  padding: 8px;
+  z-index: 100;
+}
+#skip-link:focus-visible {
+  top: 0;
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -91,6 +103,10 @@ input:checked + .slider:before {
 input:checked + .slider .fa-sun {
   opacity: 1;
 }
+main {
+  max-width: 2200px;
+  margin: 0 auto;
+}
 #stories {
   margin: 0 20px;
 }
@@ -136,7 +152,7 @@ footer {
   padding: 16px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 680px) {
   .story {
     display: flex;
     align-items: center;
